@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DSA Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+
+<header>
+  <h1>📘 DSA Tracker</h1>
+
+  <div class="top-panel">
+    <div class="progress-ring">
+      <svg width="120" height="120">
+        <circle class="bg" cx="60" cy="60" r="50" />
+        <circle class="progress" cx="60" cy="60" r="50" />
+      </svg>
+      <span id="progress-text">0%</span>
+    </div>
+
+    <div class="controls">
+      <button onclick="toggleTheme()">🌙 / ☀️</button>
+      <button onclick="filterTasks('all')">All</button>
+      <button onclick="filterTasks('solved')">Solved</button>
+      <button onclick="filterTasks('unsolved')">Unsolved</button>
+      <button onclick="exportProgress()">Export</button>
+    </div>
+  </div>
+</header>
+
+<div id="tracker"></div>
+
+<footer>
+  Made with discipline by <strong>Sumit</strong>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
