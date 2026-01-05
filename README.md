@@ -1,5 +1,8 @@
 ```md
 # 📘 DSA Progress Tracker
+<img width="1470" height="826" alt="image" src="https://github.com/user-attachments/assets/ecaa19aa-a052-48ec-b878-389ecffe1a59" />
+<img width="1457" height="811" alt="image" src="https://github.com/user-attachments/assets/bfd9846d-c11e-4c34-94a8-e74c73240d20" />
+
 
 A clean, interactive, and fully client-side **DSA tracking website** built using **HTML, CSS, and JavaScript**.  
 This project helps track solved and unsolved Data Structures & Algorithms problems with visual progress, filters, and export functionality.
