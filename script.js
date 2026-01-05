@@ -80,14 +80,31 @@ function render() {
 
     data[section].forEach(q => {
       total++;
-      const key = section + q;
-      if (progress[key]) done++;
+      const key = section + "::" + q;
+
+      if (!progress[key]) {
+        progress[key] = { solved: false, approach: "", learnings: "" };
+      }
+
+      if (progress[key].solved) done++;
 
       const li = document.createElement("li");
       li.innerHTML = `
-        <input type="checkbox" ${progress[key] ? "checked" : ""}
-        onchange="toggle('${key}', this)">
-        ${q}
+        <div class="question-row">
+          <input type="checkbox"
+            ${progress[key].solved ? "checked" : ""}
+            onchange="toggleSolved('${key}', this)">
+          <span>${q}</span>
+          <button class="note-btn" onclick="toggleNotes(this)">📝</button>
+        </div>
+
+        <div class="notes hidden">
+          <textarea placeholder="Approach..."
+            oninput="saveNote('${key}', 'approach', this.value)">${progress[key].approach}</textarea>
+
+          <textarea placeholder="What I learned..."
+            oninput="saveNote('${key}', 'learnings', this.value)">${progress[key].learnings}</textarea>
+        </div>
       `;
       ul.appendChild(li);
     });
@@ -96,8 +113,26 @@ function render() {
     tracker.appendChild(div);
   }
 
+  localStorage.setItem("dsa-progress", JSON.stringify(progress));
   updateProgress(done, total);
 }
+
+function toggleSolved(key, el) {
+  progress[key].solved = el.checked;
+  localStorage.setItem("dsa-progress", JSON.stringify(progress));
+  render();
+}
+
+function saveNote(key, field, value) {
+  progress[key][field] = value;
+  localStorage.setItem("dsa-progress", JSON.stringify(progress));
+}
+
+function toggleNotes(btn) {
+  const notes = btn.closest("li").querySelector(".notes");
+  notes.classList.toggle("hidden");
+}
+
 
 function toggle(key, el) {
   progress[key] = el.checked;

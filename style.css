@@ -117,3 +117,37 @@ footer {
   margin-top: 40px;
   opacity: 0.6;
 }
+
+
+
+.question-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.note-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.notes {
+  margin: 8px 0 12px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notes textarea {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 6px;
+  min-height: 60px;
+  resize: vertical;
+  font-size: 13px;
+}
